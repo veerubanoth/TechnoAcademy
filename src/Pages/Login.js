@@ -26,7 +26,7 @@ export default function Login() {
     <>
       <Navbar />
       <div className='py-4'>
-        <section className='grid fixed justify-items-center '>
+        <section className='grid  justify-items-center '>
           <h1 className='text-3xl text-center font-bold font-Poppins '>
             Log In
           </h1>
@@ -53,7 +53,7 @@ export default function Login() {
                 </div>
 
                 <div className='flex font-nomal justify-between font-light' >
-                  <p className='text-sm'>Don't have an acoount?</p>
+                  <p className='text-sm'>Don't have an acoount? check </p>
                   <p className='text-sm'>Forgot password</p>
                 </div>
 
