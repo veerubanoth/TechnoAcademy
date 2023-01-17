@@ -6,7 +6,7 @@ export default function Certifications() {
   return (
     <>
       <Navbar />
-      <div className='text-black'>Certifications pages</div>
+      <div className='text-black'>Certifications</div>
       <Footer/>
 
     </>
