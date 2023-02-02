@@ -4,6 +4,8 @@ import Footer from "./Footer";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import OAuth from "../Components/OAuth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { db } from "../Components/firebase";
 
 export default function Login() {
   const [ShowPassword, setShowPassword] = useState(false);
@@ -22,6 +24,21 @@ export default function Login() {
       [e.target.id]: e.target.value,
     }));
   }
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
@@ -33,9 +50,9 @@ export default function Login() {
           </h1>
 
           <div className=" w-full md:w-[67%] lg:w-[40%] lg:ml-20 py-4  ">
-            <form className="grid font-Poppins br">
+            <form onSubmit={onSubmit} className="grid font-Poppins">
               <input
-                type="email"
+                type="text"
                 id="name"
                 className=" px-4  font-light text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out "
                 value={name}
@@ -80,7 +97,7 @@ export default function Login() {
             <button
               className="w-full  bg-blue-600 text-white px-7 py-3 text-sm font-medium uppercase 
               rounded hover:bg-blue-500 transition duration-150  ease-in-out hover: shadow-lg active:bg-blue-800 "
-              type="submit"
+              type="ubmit"
             >
               Sign Up
             </button>
