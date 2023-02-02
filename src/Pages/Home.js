@@ -29,10 +29,7 @@ export default function Home() {
           knowledge,</b> <br />
         gain good grades, get jobs.
       </p>
-      
-
       <Footer />
-
     </div>
   )
 }
