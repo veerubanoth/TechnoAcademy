@@ -5,7 +5,9 @@ import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import OAuth from "../Components/OAuth";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import { db } from "../Components/firebase";
+import { db } from "../Components/firebase";
+import { serverTimestamp } from "firebase/firestore";
+import { useNavigate } from "react-router";
 
 export default function Login() {
   const [ShowPassword, setShowPassword] = useState(false);
@@ -17,6 +19,8 @@ export default function Login() {
   });
 
   const { name, email, password } = formData;
+  const navigate = useNavigate();
+  
 
   function onChange(e) {
     setFormData((prevState) => ({
@@ -24,6 +28,7 @@ export default function Login() {
       [e.target.id]: e.target.value,
     }));
   }
+
   async function onSubmit(e) {
     e.preventDefault();
     try {
@@ -33,10 +38,15 @@ export default function Login() {
         email,
         password
       );
+
       const user = userCredential.user;
-      console.log(user);
+      const formDataCopy = {...formData}
+      delete formData.password
+      formDataCopy.timestamp = serverTimestamp();
+      await setDock(doc(db, "users",  formDataCopy ));
+      navigate("/");
     } catch (error) {
-      console.log(error);
+
     }
   }
 
@@ -97,7 +107,7 @@ export default function Login() {
             <button
               className="w-full  bg-blue-600 text-white px-7 py-3 text-sm font-medium uppercase 
               rounded hover:bg-blue-500 transition duration-150  ease-in-out hover: shadow-lg active:bg-blue-800 "
-              type="ubmit"
+              type="submit" onClick={onSubmit}
             >
               Sign Up
             </button>
