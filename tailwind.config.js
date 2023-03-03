@@ -10,9 +10,6 @@ module.exports = {
         Poppins: "Poppins"
       },
 
-      backgroundImage: {
-        'Hero': "url('/Img/Hero.jpeg')",
-      },
 
       screens: {
         'sm': '640px',
@@ -36,3 +33,5 @@ module.exports = {
     require('@tailwindcss/forms')
   ],
 }
+
+

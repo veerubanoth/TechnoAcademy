@@ -7,7 +7,7 @@ export class VideoCourses extends Component {
     return (
       <>
         <Navbar />
-        <div className='text-black'>Video Courses</div>
+        <div className='text-white'>Video Courses</div>
         <Footer />
       </>
 

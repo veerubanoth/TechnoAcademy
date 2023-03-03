@@ -5,10 +5,10 @@ import Lambda_logo from "../Img/Lambda_logo.png";
 export default function Footer() {
    return (
       <div>
-         <footer className="text-center bg-gray-100 text-gray-600 px-10 font-Poppins font-light  ">
+         <footer className="text-center rgb(9, 4, 29) text-white px-10 font-Poppins font-light  ">
             <div className="flex p-3 border-b border-gray-300 justify-end  ">
                <div className="flex justify-center  ">
-                  <a href="#!" className="mr-6 text-gray-600 hover:text-blue-600  hover:scale-150 duration-200   ">
+                  <a href="#!" className="mr-6 text-white hover:text-blue-600  hover:scale-150 duration-200   ">
                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                         className="w-2.5" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 320 512">
@@ -17,7 +17,7 @@ export default function Footer() {
                         </path>
                      </svg>
                   </a>
-                  <a href="#!" className="mr-6 text-gray-600 hover:text-blue-600 hover:scale-150 duration-200  ">
+                  <a href="#!" className="mr-6 text-white hover:text-blue-600 hover:scale-150 duration-200  ">
                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
                         className="w-4" role="img" viewBox="0 0 512 512">
                         <path fill="currentColor"
@@ -25,7 +25,7 @@ export default function Footer() {
                         </path>
                      </svg>
                   </a>
-                  <a href="#!" className="mr-6 text-gray-600 hover:text-blue-600 hover:scale-150 duration-200">
+                  <a href="#!" className="mr-6 text-white hover:text-blue-600 hover:scale-150 duration-200">
                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google"
                         className="w-3.5" role="img" viewBox="0 0 488 512">
                         <path fill="currentColor"
@@ -33,7 +33,7 @@ export default function Footer() {
                         </path>
                      </svg>
                   </a>
-                  <a href="#!" className="mr-6 text-gray-600 hover:text-blue-600 hover:scale-150 duration-200">
+                  <a href="#!" className="mr-6 text-white hover:text-blue-600 hover:scale-150 duration-200">
                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
                         className="w-3.5" role="img" viewBox="0 0 448 512">
                         <path fill="currentColor"
@@ -41,7 +41,7 @@ export default function Footer() {
                         </path>
                      </svg>
                   </a>
-                  <a href="#!" className="mr-6 text-gray-600 hover:text-blue-600 hover:scale-150 duration-200">
+                  <a href="#!" className="mr-6 text-white hover:text-blue-600 hover:scale-150 duration-200">
                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in"
                         className="w-3.5" role="img"
                         viewBox="0 0 448 512">
@@ -50,7 +50,7 @@ export default function Footer() {
                         </path>
                      </svg>
                   </a>
-                  <a href="#!" className="text-gray-600 hover:text-blue-600 hover:scale-150 duration-200">
+                  <a href="#!" className="text-white hover:text-blue-600 hover:scale-150 duration-200">
                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
                         className="w-4" role="img" viewBox="0 0 496 512">
                         <path fill="currentColor"

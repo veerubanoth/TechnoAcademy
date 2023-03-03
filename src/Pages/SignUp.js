@@ -20,7 +20,7 @@ export default function Login() {
 
   const { name, email, password } = formData;
   const navigate = useNavigate();
-  
+
 
   function onChange(e) {
     setFormData((prevState) => ({
@@ -40,10 +40,10 @@ export default function Login() {
       );
 
       const user = userCredential.user;
-      const formDataCopy = {...formData}
+      const formDataCopy = { ...formData }
       delete formData.password
       formDataCopy.timestamp = serverTimestamp();
-      await setDock(doc(db, "users",  formDataCopy ));
+      // await setDock(doc(db, "users",  formDataCopy ));
       navigate("/");
     } catch (error) {
 

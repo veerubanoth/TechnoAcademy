@@ -1,40 +1,64 @@
-import React from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
+import { React, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import Lambda_logo from "../Img/Lambda_logo.png";
+import { close, menu } from "../assets";
+import { navLinks } from "../constants";
 
 
-export default function Navbar() {
+const Navbar = () => {
+    const [active, setActive] = useState("Home");
+    const [toggle, setToggle] = useState(false);
+    const navigate = useNavigate();
 
-  const location = useLocation();
-  const navigate = useNavigate();
 
-  function pathMatchRoute(route) {
-    if (route === location.pathname) {
-      return true
-    }
-  };
+    return (
+        <nav className='W-full flex py-6 justify-between items-center navbar px-20 '>
+            <img src={Lambda_logo} alt="technoacademy" className='h-9' onClick={() => navigate("/")} />
+            <p className='font-semibold text-2xl cursor-pointer text-white py-1 px-1' onClick={() => navigate("/")}> Techno Academy</p>
 
-  return (
-    <div className='sticky top-0 z-50  bg-gray-100 text-gray-600 px-10'>
-      <header className='flex justify-between item-center  py-1 max-w-7xl mx-auto '>
-        <div className='flex font-Poppins py-2'>
-          <img src={Lambda_logo} alt="logo" className='h-9' onClick={() => navigate("/")} />
-          <p className='font-bold text-xl  cursor-pointer text-blue-900 py-1 px-1' onClick={() => navigate("/")}> Techno Academy</p>
-        </div>
 
-        <div>
-          <ul className='flex space-x-10 font-Poppins'>
-            <li className={`py-3 cursor-pointer text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/video-courses") && "text-black border-b-red-500"}`}
-              onClick={() => navigate("/video-courses")} > Video Courses</li>
-            <li className={`py-3 cursor-pointer text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/certifications") && "text-black border-b-red-500"}`}
-              onClick={() => navigate("/certifications")}> Certifications</li>
-            <li className={`py-3 cursor-pointer text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/login") && "text-black border-b-red-500"}`}
-              onClick={() => navigate("/login")}>Login</li>
-            <li className={`py-3 cursor-pointer text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/signUp") && "text-black border-b-red-500"}`}
-              onClick={() => navigate("/signUp")}>SignUp</li>
-          </ul>
-        </div>
-      </header >
-    </div >
-  )
+            <ul className='list-none sm:flex hidden justify-end items-center flex-1 text-white '>
+                {navLinks.map((nav, index) => (
+                    <li
+                        key={nav.id}
+                        className={`font-poppins font-normal cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-dimWhite"
+                            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+                        onClick={() => setActive(nav.title)}
+                    >
+                        <a href={`${nav.id}`}>{nav.title}</a>
+                    </li>
+                ))}
+            </ul>
+            <div className="sm:hidden flex flex-1 justify-end items-center text-black">
+                <img
+                    src={toggle ? close : menu}
+                    alt="menu"
+                    className="w-[28px] h-[28px] object-contain"
+                    onClick={() => setToggle(!toggle)}
+                />
+
+                <div
+                    className={`${!toggle ? "hidden" : "flex"
+                        } p-6 bg-gradient-to-r from-violet-200 to-fuchsia-200 absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+                >
+                    <ul className="list-none flex justify-end items-start flex-1 flex-col">
+                        {navLinks.map((nav, index) => (
+                            <li
+                                key={nav.id}
+                                className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "text-white" : "text-dimWhite"
+                                    } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                                onClick={() => setActive(nav.title)}
+                            >
+                                <a href={`${nav.id}`}>{nav.title}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    )
 }
+
+export default Navbar;
+

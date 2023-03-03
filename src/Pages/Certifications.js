@@ -6,7 +6,7 @@ export default function Certifications() {
   return (
     <>
       <Navbar />
-      <div className='text-black'>Certifications page in techno academy</div>
+      <div className='text-white'>Certifications page in techno academy</div>
       <Footer/>
 
     </>
